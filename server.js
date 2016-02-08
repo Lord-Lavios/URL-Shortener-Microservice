@@ -1,18 +1,17 @@
 'use strict';
-// ' mongodb://Lavios:PassData1707@ds039484.mongolab.com:39484/urls'
+
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var app = express();
-mongoose.connect('mongodb://Lavios:PassData1707@ds039484.mongolab.com:39484/urls');
+mongoose.connect('mongodb://username:passwork@something.mongolab.com:number/something');
 var port = process.env.PORT || 8080;
 
 //Using middleware
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.static(path.join(__dirname, '/.tmp/styles')));
-app.use(express.static('E:/Work Type Things/Code/Projects/Back End/bower_components'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 

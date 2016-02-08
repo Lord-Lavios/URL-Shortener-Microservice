@@ -78,4 +78,3 @@ router.post('/add', function(req, res) {
 
 module.exports = router;
 
-//https://git.heroku.minallurl.git
