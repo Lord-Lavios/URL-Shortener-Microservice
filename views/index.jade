@@ -1,0 +1,8 @@
+extends ../public/layouts/default
+
+block content
+	#onlydiv
+		#onlydiv-inside
+			p Paste your URL below to shorten it
+			input#area(type='text' name='url', placeholder = 'www.facebook.com', autocomplete = 'off')
+			input#button(type='submit')
