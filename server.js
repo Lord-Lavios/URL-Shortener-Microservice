@@ -7,6 +7,7 @@ var mongoose = require('mongoose');
 
 var app = express();
 mongoose.connect('mongodb://Lavios:PassData1707@ds039484.mongolab.com:39484/urls');
+var port = process.env.PORT || 8080;
 
 //Using middleware
 app.use(express.static(path.join(__dirname, '/public')));
@@ -25,7 +26,38 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(require('./routes/dynamic.js'));
 
 //Listen on this port, Starting the server
-app.listen(3000, function() {
-	console.log('Server is running on port 3000');
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handlers
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
+  });
+}
+
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
+});
+
+
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
 });
 
