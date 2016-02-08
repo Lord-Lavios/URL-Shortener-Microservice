@@ -1,8 +1,21 @@
 {
-	"devDependencies": {
+  "devDependencies": {
     "body-parser": "^1.14.2",
     "express": "^4.13.4",
     "jade": "^1.11.0",
-    "mongoose": "^4.3.7",
-  }
+    "mongoose": "^4.3.7"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "codestuff",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https:\\minallurl.herokuapp.com"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
